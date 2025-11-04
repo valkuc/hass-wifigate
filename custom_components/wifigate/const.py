@@ -1,3 +1,5 @@
+"""Constants for the WifiGate integration."""
+
 DOMAIN = "wifigate"
 NAME = "WifiGate"
 

@@ -1,3 +1,5 @@
+"""Support for WifiGate button entities."""
+
 import logging
 
 from homeassistant.components.button import ButtonEntity
@@ -14,7 +16,11 @@ from .coordinator import WifigateDataUpdateCoordinator
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, async_add_entities: AddEntitiesCallback):
+async def async_setup_entry(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+):
     """Set up buttons from a config entry."""
 
     coordinator: WifigateDataUpdateCoordinator = config_entry.runtime_data
@@ -24,24 +30,35 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, asyn
     for ctrl in COMMAND_MAP:
         if ctrl not in controls:
             entity_id = entity_registry.async_get_entity_id(
-                Platform.BUTTON, DOMAIN, WifigateControlButton.get_entity_unique_id(config_entry, ctrl))
+                Platform.BUTTON,
+                DOMAIN,
+                WifigateControlButton.get_entity_unique_id(config_entry, ctrl),
+            )
             if entity_id:
                 entity_registry.async_remove(entity_id)
 
-    buttons = []
-    for ctrl in controls:
-        if ctrl in COMMAND_MAP:
-            buttons.append(WifigateControlButton(coordinator, config_entry, ctrl))
-
+    buttons = [
+        WifigateControlButton(coordinator, config_entry, ctrl)
+        for ctrl in controls
+        if ctrl in COMMAND_MAP
+    ]
     async_add_entities(buttons)
 
 
-class WifigateControlButton(CoordinatorEntity[WifigateDataUpdateCoordinator], ButtonEntity):
+class WifigateControlButton(
+    CoordinatorEntity[WifigateDataUpdateCoordinator], ButtonEntity
+):
     """Button entity for controlling the gate with one-shot commands."""
 
     _attr_has_entity_name = True
 
-    def __init__(self, coordinator: WifigateDataUpdateCoordinator, config_entry: ConfigEntry, control: str):
+    def __init__(
+        self,
+        coordinator: WifigateDataUpdateCoordinator,
+        config_entry: ConfigEntry,
+        control: str,
+    ):
+        """Initialize control button."""
         super().__init__(coordinator)
         self.control = control
         self._attr_translation_key = f"control_{control}"
@@ -59,6 +76,7 @@ class WifigateControlButton(CoordinatorEntity[WifigateDataUpdateCoordinator], Bu
 
     @property
     def icon(self):
+        """Return icon."""
         return {
             "open": "mdi:door-sliding-open",
             "close": "mdi:door-sliding",
@@ -69,4 +87,5 @@ class WifigateControlButton(CoordinatorEntity[WifigateDataUpdateCoordinator], Bu
 
     @staticmethod
     def get_entity_unique_id(config_entry: ConfigEntry, control: str):
+        """Build unique ID."""
         return f"{config_entry.entry_id}_ctl_{control}"
