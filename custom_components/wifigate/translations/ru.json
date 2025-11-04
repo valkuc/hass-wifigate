@@ -1,0 +1,92 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "WifiGate",
+        "description": "Настройка подключения к контроллеру WifiGate.",
+        "data": {
+          "name": "Название устройства",
+          "host": "Хост[:Порт]",
+          "username": "Имя пользователя",
+          "password": "Пароль",
+          "controls": "Элементы управления"
+        }
+      },
+      "reconfigure": {
+        "title": "WifiGate",
+        "description": "Переконфигурация подключения к контроллеру WifiGate.",
+        "data": {
+          "name": "Название устройства",
+          "host": "Хост[:Порт]",
+          "username": "Имя пользователя",
+          "password": "Пароль",
+          "controls": "Элементы управления"
+        }
+      }
+    },
+    "error": {
+      "auth_fail": "Ошибка аутентификации"
+    },
+    "abort": {
+      "reconfigure_successful": "Успешно переконфигурировано."
+    }
+  },
+  "selector": {
+    "controls": {
+      "options": {
+        "open": "Открыть",
+        "close": "Закрыть",
+        "stop": "Остановить",
+        "step": "Пошагово",
+        "wicket": "Калитка"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "state_sensor": {
+        "name": "Текущее состояние",
+        "state": {
+          "unknown": "Незвестно",
+          "opening": "Открываются",
+          "open": "Открыто",
+          "closing": "Закрываются",
+          "closed": "Закрыто",
+          "wicket": "Калитка",
+          "stopped": "Остановлены"
+        }
+      }
+    },
+    "button": {
+      "control_open": {
+        "name": "Открыть"
+      },
+      "control_close": {
+        "name": "Закрыть"
+      },
+      "control_stop": {
+        "name": "Остановить"
+      },
+      "control_step": {
+        "name": "Пошагово"
+      },
+      "control_wicket": {
+        "name": "Калитка"
+      }
+    }
+  },
+  "exceptions": {
+    "wrong_state": {
+      "message": "Невозможно выполнить действие при текущем состоянии ворот"
+    },
+    "invalid_param": {
+      "message": "Неверный параметр"
+    },
+    "busy": {
+      "message": "Контроллер занят и уже выполняет другую команду"
+    },
+    "timeout": {
+      "message": "Таймаут при выполнении запроса"
+    }
+  }
+}

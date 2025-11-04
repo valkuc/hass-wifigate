@@ -1,0 +1,92 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "WifiGate",
+        "description": "WifiGate controller setup.",
+        "data": {
+          "name": "Device name",
+          "host": "Host[:Port]",
+          "username": "Username",
+          "password": "Password",
+          "controls": "Controls"
+        }
+      },
+      "reconfigure": {
+        "title": "WifiGate",
+        "description": "WifiGate controller reconfigure.",
+        "data": {
+          "name": "Device name",
+          "host": "Host[:Port]",
+          "username": "Username",
+          "password": "Password",
+          "controls": "Controls"
+        }
+      }
+    },
+    "error": {
+      "auth_fail": "Authentication failed"
+    },
+    "abort": {
+      "reconfigure_successful": "Successfully reconfigured."
+    }
+  },
+  "selector": {
+    "controls": {
+      "options": {
+        "open": "Open",
+        "close": "Close",
+        "stop": "Stop",
+        "step": "Step-by-step",
+        "wicket": "Wicket"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "state_sensor": {
+        "name": "Current state",
+        "state": {
+          "unknown": "Unknown",
+          "opening": "Opening",
+          "open": "Open",
+          "closing": "Closing",
+          "closed": "Closed",
+          "wicket": "Wicket",
+          "stopped": "Stopped"
+        }
+      }
+    },
+    "button": {
+      "control_open": {
+        "name": "Open"
+      },
+      "control_close": {
+        "name": "Close"
+      },
+      "control_stop": {
+        "name": "Stop"
+      },
+      "control_step": {
+        "name": "Step-by-step"
+      },
+      "control_wicket": {
+        "name": "Wicket"
+      }
+    }
+  },
+  "exceptions": {
+    "wrong_state": {
+      "message": "The action cannot be performed in the current state"
+    },
+    "invalid_param": {
+      "message": "Invalid command parameter"
+    },
+    "busy": {
+      "message": "Device is busy and is already executing another command"
+    },
+    "timeout": {
+      "message": "Request timeout"
+    }
+  }
+}
