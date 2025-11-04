@@ -1,13 +1,14 @@
 import logging
+
 from homeassistant.components.button import ButtonEntity
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
 from homeassistant.const import Platform
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.entity_registry import async_get
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN, CONF_CONTROLS, COMMAND_MAP
+from .const import COMMAND_MAP, CONF_CONTROLS, DOMAIN
 from .coordinator import WifigateDataUpdateCoordinator
 
 _LOGGER = logging.getLogger(__name__)

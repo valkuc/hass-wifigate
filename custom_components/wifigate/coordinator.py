@@ -1,28 +1,19 @@
 import logging
-from typing import Any, Dict
 from datetime import timedelta
+from typing import Any, Dict
 
 import aiohttp
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import InvalidStateError
 from homeassistant.helpers.device_registry import DeviceInfo
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+from homeassistant.helpers.update_coordinator import (DataUpdateCoordinator,
+                                                      UpdateFailed)
 from homeassistant.util.dt import utcnow
 
-from .const import (
-    DOMAIN,
-    NAME,
-    CONF_NAME,
-    CONF_HOST,
-    CONF_USERNAME,
-    CONF_PASSWORD,
-    CONF_CONTROLS,
-    REQUEST_TIMEOUT,
-    POLL_INTERVAL,
-    STATE_MAP
-)
+from .const import (CONF_CONTROLS, CONF_HOST, CONF_NAME, CONF_PASSWORD,
+                    CONF_USERNAME, DOMAIN, NAME, POLL_INTERVAL,
+                    REQUEST_TIMEOUT, STATE_MAP)
 
 
 class WifigateDataUpdateCoordinator(DataUpdateCoordinator):

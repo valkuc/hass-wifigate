@@ -1,25 +1,17 @@
+import logging
 from typing import Any
 
+import aiohttp
+import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.exceptions import ConfigEntryAuthFailed
-from homeassistant.helpers.selector import SelectSelector, SelectSelectorConfig, SelectSelectorMode
+from homeassistant.helpers.selector import (SelectSelector,
+                                            SelectSelectorConfig,
+                                            SelectSelectorMode)
 
-from .const import (
-    DOMAIN,
-    NAME,
-    CONF_NAME,
-    CONF_HOST,
-    CONF_USERNAME,
-    CONF_PASSWORD,
-    CONF_CONTROLS,
-    DEFAULT_CONTROLS,
-    DEFAULT_NAME,
-    REQUEST_TIMEOUT
-)
-
-import voluptuous as vol
-import logging
-import aiohttp
+from .const import (CONF_CONTROLS, CONF_HOST, CONF_NAME, CONF_PASSWORD,
+                    CONF_USERNAME, DEFAULT_CONTROLS, DEFAULT_NAME, DOMAIN,
+                    NAME, REQUEST_TIMEOUT)
 
 _LOGGER = logging.getLogger(__name__)
 

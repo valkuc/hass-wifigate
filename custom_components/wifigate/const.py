@@ -35,4 +35,3 @@ STATE_MAP = {
     5: "wicket",
     6: "stopped",
 }
-
