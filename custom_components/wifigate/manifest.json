@@ -1,17 +1,17 @@
 {
-  "domain": "wifigate",
-  "name": "WifiGate",
-  "version": "0.0.1",
   "codeowners": ["@valkuc"],
-  "documentation": "https://github.com/valkuc/hass-wifigate",
-  "issue_tracker": "https://github.com/valkuc/hass-wifigate/issues",
   "config_flow": true,
-  "iot_class": "local_polling",
+  "domain": "wifigate",
+  "documentation": "https://github.com/valkuc/hass-wifigate",
   "integration_type": "device",
+  "issue_tracker": "https://github.com/valkuc/hass-wifigate/issues",
+  "iot_class": "local_polling",
+  "name": "WifiGate",
   "ssdp": [
     {
       "manufacturer": "WifiGate"
     }
   ],
+  "version": "0.0.1",
   "zeroconf": ["_wifigate._tcp.local."]
 }
