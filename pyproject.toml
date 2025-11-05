@@ -103,6 +103,10 @@ ignore = [
     "PLR2004" # Magic value used in comparison
 ]
 
+[tool.ruff.format]
+# Use `\n` line endings for all files
+line-ending = "lf"
+
 [tool.ruff.lint.isort]
 force-sort-within-sections = true
 known-first-party = [
