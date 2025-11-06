@@ -28,7 +28,8 @@
       "auth_fail": "Ошибка аутентификации"
     },
     "abort": {
-      "reconfigure_successful": "Успешно переконфигурировано."
+      "reconfigure_successful": "Успешно переконфигурировано.",
+      "already_configured": "Устройство уже сконфигурировано."
     }
   },
   "selector": {

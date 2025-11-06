@@ -28,7 +28,8 @@
       "auth_fail": "Authentication failed"
     },
     "abort": {
-      "reconfigure_successful": "Successfully reconfigured."
+      "reconfigure_successful": "Successfully reconfigured.",
+      "already_configured": "Device is already configured."
     }
   },
   "selector": {
